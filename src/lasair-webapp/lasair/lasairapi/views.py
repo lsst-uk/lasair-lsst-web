@@ -6,9 +6,10 @@ from .serializers import ConeSerializer, StreamlogSerializer, QuerySerializer
 from .serializers import LightcurvesSerializer, SherlockQuerySerializer, SherlockObjectSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from .query_auth import QueryAuthentication
 
 class ConeView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
