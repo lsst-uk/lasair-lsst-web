@@ -25,7 +25,7 @@ class ConeView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class StreamlogView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -39,7 +39,7 @@ class StreamlogView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class QueryView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -53,7 +53,7 @@ class QueryView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LightcurvesView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -66,7 +66,7 @@ class LightcurvesView(APIView):
             return Response(message, status=status.HTTP_200_OK)
 
 class SherlockQueryView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -79,7 +79,7 @@ class SherlockQueryView(APIView):
             return Response(message, status=status.HTTP_200_OK)
 
 class SherlockObjectView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication, QueryAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
